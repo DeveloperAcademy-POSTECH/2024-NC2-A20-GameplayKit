@@ -11,7 +11,7 @@ import SwiftUI
 struct NC2App: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            gamePlayView()
         }
     }
 }

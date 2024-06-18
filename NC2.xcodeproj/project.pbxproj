@@ -8,12 +8,42 @@
 
 /* Begin PBXBuildFile section */
 		292428A62C202674008E214F /* NC2App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 292428A52C202674008E214F /* NC2App.swift */; };
-		292428A82C202674008E214F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 292428A72C202674008E214F /* ContentView.swift */; };
-		292428AA2C202677008E214F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 292428A92C202677008E214F /* Assets.xcassets */; };
 		292428AD2C202677008E214F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 292428AC2C202677008E214F /* Preview Assets.xcassets */; };
 		292428B72C202677008E214F /* NC2Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 292428B62C202677008E214F /* NC2Tests.swift */; };
 		292428C12C202677008E214F /* NC2UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 292428C02C202677008E214F /* NC2UITests.swift */; };
 		292428C32C202677008E214F /* NC2UITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 292428C22C202677008E214F /* NC2UITestsLaunchTests.swift */; };
+		292428D22C202711008E214F /* gamePlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 292428D12C202711008E214F /* gamePlayView.swift */; };
+		292428D82C204DFB008E214F /* UpheavalPro.otf in Resources */ = {isa = PBXBuildFile; fileRef = 292428D72C204DFB008E214F /* UpheavalPro.otf */; };
+		292428D92C204DFB008E214F /* UpheavalPro.otf in Resources */ = {isa = PBXBuildFile; fileRef = 292428D72C204DFB008E214F /* UpheavalPro.otf */; };
+		292428DA2C204DFB008E214F /* UpheavalPro.otf in Resources */ = {isa = PBXBuildFile; fileRef = 292428D72C204DFB008E214F /* UpheavalPro.otf */; };
+		299C5A092C205BB100436FE9 /* snowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 299C5A082C205BB100436FE9 /* snowView.swift */; };
+		299C5A0B2C2075CD00436FE9 /* backgroundSound.swift in Sources */ = {isa = PBXBuildFile; fileRef = 299C5A0A2C2075CD00436FE9 /* backgroundSound.swift */; };
+		299C5A102C2076E200436FE9 /* soundBackground.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 299C5A0F2C2076E200436FE9 /* soundBackground.mp3 */; };
+		299C5A112C2076E200436FE9 /* soundBackground.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 299C5A0F2C2076E200436FE9 /* soundBackground.mp3 */; };
+		299C5A122C2076E200436FE9 /* soundBackground.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 299C5A0F2C2076E200436FE9 /* soundBackground.mp3 */; };
+		299C5A1A2C20784400436FE9 /* soundJump.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 299C5A172C20784300436FE9 /* soundJump.mp3 */; };
+		299C5A1B2C20784400436FE9 /* soundJump.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 299C5A172C20784300436FE9 /* soundJump.mp3 */; };
+		299C5A1C2C20784400436FE9 /* soundJump.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 299C5A172C20784300436FE9 /* soundJump.mp3 */; };
+		299C5A1D2C20784400436FE9 /* soundOver.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 299C5A182C20784300436FE9 /* soundOver.mp3 */; };
+		299C5A1E2C20784400436FE9 /* soundOver.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 299C5A182C20784300436FE9 /* soundOver.mp3 */; };
+		299C5A1F2C20784400436FE9 /* soundOver.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 299C5A182C20784300436FE9 /* soundOver.mp3 */; };
+		299C5A202C20784400436FE9 /* soundStart.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 299C5A192C20784400436FE9 /* soundStart.mp3 */; };
+		299C5A212C20784400436FE9 /* soundStart.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 299C5A192C20784400436FE9 /* soundStart.mp3 */; };
+		299C5A222C20784400436FE9 /* soundStart.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 299C5A192C20784400436FE9 /* soundStart.mp3 */; };
+		299C5A262C2136DE00436FE9 /* snowingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 299C5A252C2136DE00436FE9 /* snowingView.swift */; };
+		299C5A282C21377F00436FE9 /* gameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 299C5A272C21377F00436FE9 /* gameScene.swift */; };
+		299C5A2D2C213C0C00436FE9 /* SnowParticle.sks in Resources */ = {isa = PBXBuildFile; fileRef = 299C5A2B2C213C0C00436FE9 /* SnowParticle.sks */; };
+		299C5A2E2C213C0C00436FE9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 299C5A2C2C213C0C00436FE9 /* Assets.xcassets */; };
+		299C5A2F2C213C0C00436FE9 /* SnowParticle.sks in Resources */ = {isa = PBXBuildFile; fileRef = 299C5A2B2C213C0C00436FE9 /* SnowParticle.sks */; };
+		299C5A302C213C0C00436FE9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 299C5A2C2C213C0C00436FE9 /* Assets.xcassets */; };
+		299C5A312C213C0C00436FE9 /* SnowParticle.sks in Resources */ = {isa = PBXBuildFile; fileRef = 299C5A2B2C213C0C00436FE9 /* SnowParticle.sks */; };
+		299C5A322C213C0C00436FE9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 299C5A2C2C213C0C00436FE9 /* Assets.xcassets */; };
+		299C5A342C21535F00436FE9 /* playerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 299C5A332C21535F00436FE9 /* playerView.swift */; };
+		299C5A352C21535F00436FE9 /* playerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 299C5A332C21535F00436FE9 /* playerView.swift */; };
+		299C5A362C21535F00436FE9 /* playerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 299C5A332C21535F00436FE9 /* playerView.swift */; };
+		299C5A382C21539A00436FE9 /* enemyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 299C5A372C21539A00436FE9 /* enemyView.swift */; };
+		299C5A392C21539A00436FE9 /* enemyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 299C5A372C21539A00436FE9 /* enemyView.swift */; };
+		299C5A3A2C21539A00436FE9 /* enemyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 299C5A372C21539A00436FE9 /* enemyView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,14 +66,27 @@
 /* Begin PBXFileReference section */
 		292428A22C202674008E214F /* NC2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NC2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		292428A52C202674008E214F /* NC2App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NC2App.swift; sourceTree = "<group>"; };
-		292428A72C202674008E214F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		292428A92C202677008E214F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		292428AC2C202677008E214F /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		292428B22C202677008E214F /* NC2Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NC2Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		292428B62C202677008E214F /* NC2Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NC2Tests.swift; sourceTree = "<group>"; };
 		292428BC2C202677008E214F /* NC2UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NC2UITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		292428C02C202677008E214F /* NC2UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NC2UITests.swift; sourceTree = "<group>"; };
 		292428C22C202677008E214F /* NC2UITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NC2UITestsLaunchTests.swift; sourceTree = "<group>"; };
+		292428D12C202711008E214F /* gamePlayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = gamePlayView.swift; sourceTree = "<group>"; };
+		292428D62C204ABF008E214F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		292428D72C204DFB008E214F /* UpheavalPro.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = UpheavalPro.otf; sourceTree = "<group>"; };
+		299C5A082C205BB100436FE9 /* snowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = snowView.swift; sourceTree = "<group>"; };
+		299C5A0A2C2075CD00436FE9 /* backgroundSound.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = backgroundSound.swift; sourceTree = "<group>"; };
+		299C5A0F2C2076E200436FE9 /* soundBackground.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = soundBackground.mp3; path = NC2/soundBackground.mp3; sourceTree = SOURCE_ROOT; };
+		299C5A172C20784300436FE9 /* soundJump.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = soundJump.mp3; sourceTree = SOURCE_ROOT; };
+		299C5A182C20784300436FE9 /* soundOver.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = soundOver.mp3; sourceTree = SOURCE_ROOT; };
+		299C5A192C20784400436FE9 /* soundStart.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = soundStart.mp3; sourceTree = SOURCE_ROOT; };
+		299C5A252C2136DE00436FE9 /* snowingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = snowingView.swift; sourceTree = "<group>"; };
+		299C5A272C21377F00436FE9 /* gameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = gameScene.swift; sourceTree = "<group>"; };
+		299C5A2B2C213C0C00436FE9 /* SnowParticle.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = SnowParticle.sks; sourceTree = "<group>"; };
+		299C5A2C2C213C0C00436FE9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		299C5A332C21535F00436FE9 /* playerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = playerView.swift; sourceTree = "<group>"; };
+		299C5A372C21539A00436FE9 /* enemyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = enemyView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,9 +137,19 @@
 		292428A42C202674008E214F /* NC2 */ = {
 			isa = PBXGroup;
 			children = (
+				292428D62C204ABF008E214F /* Info.plist */,
 				292428A52C202674008E214F /* NC2App.swift */,
-				292428A72C202674008E214F /* ContentView.swift */,
-				292428A92C202677008E214F /* Assets.xcassets */,
+				299C5A332C21535F00436FE9 /* playerView.swift */,
+				299C5A372C21539A00436FE9 /* enemyView.swift */,
+				292428D12C202711008E214F /* gamePlayView.swift */,
+				299C5A082C205BB100436FE9 /* snowView.swift */,
+				299C5A252C2136DE00436FE9 /* snowingView.swift */,
+				299C5A272C21377F00436FE9 /* gameScene.swift */,
+				299C5A2B2C213C0C00436FE9 /* SnowParticle.sks */,
+				299C5A2C2C213C0C00436FE9 /* Assets.xcassets */,
+				299C5A0A2C2075CD00436FE9 /* backgroundSound.swift */,
+				299C5A0E2C20761500436FE9 /* sound */,
+				292428D32C204A20008E214F /* font */,
 				292428AB2C202677008E214F /* Preview Content */,
 			);
 			path = NC2;
@@ -125,6 +178,25 @@
 				292428C22C202677008E214F /* NC2UITestsLaunchTests.swift */,
 			);
 			path = NC2UITests;
+			sourceTree = "<group>";
+		};
+		292428D32C204A20008E214F /* font */ = {
+			isa = PBXGroup;
+			children = (
+				292428D72C204DFB008E214F /* UpheavalPro.otf */,
+			);
+			path = font;
+			sourceTree = "<group>";
+		};
+		299C5A0E2C20761500436FE9 /* sound */ = {
+			isa = PBXGroup;
+			children = (
+				299C5A0F2C2076E200436FE9 /* soundBackground.mp3 */,
+				299C5A172C20784300436FE9 /* soundJump.mp3 */,
+				299C5A182C20784300436FE9 /* soundOver.mp3 */,
+				299C5A192C20784400436FE9 /* soundStart.mp3 */,
+			);
+			path = sound;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -231,8 +303,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				299C5A1D2C20784400436FE9 /* soundOver.mp3 in Resources */,
+				292428D82C204DFB008E214F /* UpheavalPro.otf in Resources */,
 				292428AD2C202677008E214F /* Preview Assets.xcassets in Resources */,
-				292428AA2C202677008E214F /* Assets.xcassets in Resources */,
+				299C5A202C20784400436FE9 /* soundStart.mp3 in Resources */,
+				299C5A102C2076E200436FE9 /* soundBackground.mp3 in Resources */,
+				299C5A1A2C20784400436FE9 /* soundJump.mp3 in Resources */,
+				299C5A2D2C213C0C00436FE9 /* SnowParticle.sks in Resources */,
+				299C5A2E2C213C0C00436FE9 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -240,6 +318,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				299C5A2F2C213C0C00436FE9 /* SnowParticle.sks in Resources */,
+				299C5A302C213C0C00436FE9 /* Assets.xcassets in Resources */,
+				299C5A1E2C20784400436FE9 /* soundOver.mp3 in Resources */,
+				299C5A1B2C20784400436FE9 /* soundJump.mp3 in Resources */,
+				299C5A112C2076E200436FE9 /* soundBackground.mp3 in Resources */,
+				292428D92C204DFB008E214F /* UpheavalPro.otf in Resources */,
+				299C5A212C20784400436FE9 /* soundStart.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -247,6 +332,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				299C5A312C213C0C00436FE9 /* SnowParticle.sks in Resources */,
+				299C5A322C213C0C00436FE9 /* Assets.xcassets in Resources */,
+				299C5A1F2C20784400436FE9 /* soundOver.mp3 in Resources */,
+				299C5A1C2C20784400436FE9 /* soundJump.mp3 in Resources */,
+				299C5A122C2076E200436FE9 /* soundBackground.mp3 in Resources */,
+				292428DA2C204DFB008E214F /* UpheavalPro.otf in Resources */,
+				299C5A222C20784400436FE9 /* soundStart.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -257,8 +349,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				292428A82C202674008E214F /* ContentView.swift in Sources */,
+				299C5A262C2136DE00436FE9 /* snowingView.swift in Sources */,
+				292428D22C202711008E214F /* gamePlayView.swift in Sources */,
+				299C5A0B2C2075CD00436FE9 /* backgroundSound.swift in Sources */,
+				299C5A342C21535F00436FE9 /* playerView.swift in Sources */,
+				299C5A282C21377F00436FE9 /* gameScene.swift in Sources */,
+				299C5A092C205BB100436FE9 /* snowView.swift in Sources */,
 				292428A62C202674008E214F /* NC2App.swift in Sources */,
+				299C5A382C21539A00436FE9 /* enemyView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -267,6 +365,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				292428B72C202677008E214F /* NC2Tests.swift in Sources */,
+				299C5A352C21535F00436FE9 /* playerView.swift in Sources */,
+				299C5A392C21539A00436FE9 /* enemyView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -275,7 +375,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				292428C32C202677008E214F /* NC2UITestsLaunchTests.swift in Sources */,
+				299C5A362C21535F00436FE9 /* playerView.swift in Sources */,
 				292428C12C202677008E214F /* NC2UITests.swift in Sources */,
+				299C5A3A2C21539A00436FE9 /* enemyView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -424,11 +526,12 @@
 				DEVELOPMENT_ASSET_PATHS = "\"NC2/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = NC2/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIStatusBarStyle = "";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -452,11 +555,12 @@
 				DEVELOPMENT_ASSET_PATHS = "\"NC2/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = NC2/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIStatusBarStyle = "";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
