@@ -8,7 +8,7 @@ struct gamePlayView: View {
     @State private var mute = false
     @State private var audioPlayer: AVAudioPlayer?
     
-//    @Binding var santaPosY : Int
+    //    @Binding var santaPosY : Int
     @State private var santaPosY: CGFloat = 0
     
     var body: some View {
@@ -17,7 +17,7 @@ struct gamePlayView: View {
                 let width = geometry.size.width
                 let height = geometry.size.height
                 let imageSize = min(width, height)
-       
+                
                 ZStack {
                     Color(red: 0, green: 0.13, blue: 0.29)
                     Image("background")
@@ -54,11 +54,20 @@ struct gamePlayView: View {
                     }
                 }
             }
-            playerView(santaPosY: $santaPosY)
-            HStack{
+            VStack(spacing: 0) {
                 Spacer()
-                enemyView()
-                    .padding(.trailing, 62)
+                HStack(alignment: .bottom, spacing: 0){
+                    playerView(santaPosY: $santaPosY, timer: $timer)
+                        .padding(EdgeInsets(top: 0, leading: 60, bottom: 6, trailing: 0))
+                        .background(Color.white)
+                    
+                    Spacer()
+                    enemyView(timer: $timer)
+                        .padding(.trailing, 62)
+                        .background(Color.white)
+                }
+                .padding(.bottom, 45)
+                
             }
             VStack(spacing: 0){
                 HStack(alignment: .top, spacing: 0) {
@@ -124,39 +133,39 @@ struct gamePlayView: View {
                 
             }
             VStack(spacing: 0){
-            HStack(spacing: 0){
-                Button(action: {
-                    paused.toggle()
-                }, label: {
-                    if !paused {
-                        Image("pause")
-                            .padding(.trailing, 13)
-                            .padding(.top, 15)
-                    } else {
-                        Image("play")
-                            .padding(.trailing, 13)
-                            .padding(.top, 15)
-                    }
-                })
-                Button(action: {
-                    mute.toggle()
-                }, label: {
-                    if !mute {
-                        Image("on")
-                            .padding(.leading, 14)
-                            .padding(.top, 15)
-                    } else {
-                        Image("off")
-                            .padding(.leading, 14)
-                            .padding(.top, 15)
-                    }
-                })
+                HStack(spacing: 0){
+                    Button(action: {
+                        paused.toggle()
+                    }, label: {
+                        if !paused {
+                            Image("pause")
+                                .padding(.trailing, 13)
+                                .padding(.top, 15)
+                        } else {
+                            Image("play")
+                                .padding(.trailing, 13)
+                                .padding(.top, 15)
+                        }
+                    })
+                    Button(action: {
+                        mute.toggle()
+                    }, label: {
+                        if !mute {
+                            Image("on")
+                                .padding(.leading, 14)
+                                .padding(.top, 15)
+                        } else {
+                            Image("off")
+                                .padding(.leading, 14)
+                                .padding(.top, 15)
+                        }
+                    })
+                    Spacer()
+                }
+                .padding(.leading, 51)
+                .padding(.top, 25)
                 Spacer()
             }
-            .padding(.leading, 51)
-            .padding(.top, 25)
-                Spacer()
-        }
             
         }
         .ignoresSafeArea()
@@ -176,10 +185,10 @@ struct gamePlayView: View {
         timer?.invalidate()
         timer = nil
     }
-        
     
     
-    }
+    
+}
 
 
 

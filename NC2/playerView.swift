@@ -8,10 +8,12 @@ struct playerView: View {
     @Binding var santaPosY: CGFloat
 //    @State private var audioPlayer: AVAudioPlayer?
     
-    let timer = Timer.publish(every: 0.5, on: .main, in: .common).autoconnect()
+    @Binding var timer: Timer?
+    
+//    let timer = Timer.publish(every: 0.5, on: .main, in: .common).autoconnect()
     
     var body: some View {
-        GeometryReader { geometry in
+//        GeometryReader { geometry in
             ZStack {
 //                Color.clear
 //                    .contentShape(Rectangle())
@@ -30,23 +32,32 @@ struct playerView: View {
                 Image(playerImage ? "santa_idle" : "santa_walk")
                     .resizable()
                     .scaledToFit()
-                    .frame(maxHeight: 100)
+                    .frame(width: 85, height: 95)
                     .offset(y: santaPosY)
-                    .position(x: geometry.size.width / 2, y: geometry.size.height / 2 + santaPosY)
-                    .onReceive(timer) { _ in
-                        // 수정필요
-                        playerImage.toggle()
+//                    .position(x: geometry.size.width / 2, y: geometry.size.height / 2 + santaPosY)
+//                    .onReceive(timer) { _ in
+//                        // 수정필요
+//                        playerImage.toggle()
+//                    }
+                    .onAppear {
+                        startWork()
                     }
+                
             }
             
-        }
+//        }
         .edgesIgnoringSafeArea(.all)
     }
-    
+    private func startWork() {
+        timer = Timer.scheduledTimer(withTimeInterval: 0.5, repeats: true) { _ in
+            playerImage.toggle()
+        }
+    }
 }
 
 
 
+
 #Preview {
-    playerView(santaPosY: .constant(0))
+    playerView(santaPosY: .constant(0), timer: .constant(nil))
 }
