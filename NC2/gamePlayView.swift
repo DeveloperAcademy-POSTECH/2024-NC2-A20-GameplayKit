@@ -8,12 +8,16 @@ struct gamePlayView: View {
     @State private var mute = false
     @State private var audioPlayer: AVAudioPlayer?
     
+//    @Binding var santaPosY : Int
+    @State private var santaPosY: CGFloat = 0
+    
     var body: some View {
         ZStack(){
             GeometryReader { geometry in
                 let width = geometry.size.width
                 let height = geometry.size.height
                 let imageSize = min(width, height)
+       
                 ZStack {
                     Color(red: 0, green: 0.13, blue: 0.29)
                     Image("background")
@@ -37,8 +41,20 @@ struct gamePlayView: View {
                 .onDisappear {
                     stopRotation()
                 }
+                .onTapGesture {
+                    SoundManager.shared.playSound()
+                    
+                    if santaPosY <= -50 {
+                        santaPosY -= 0
+                    } else {
+                        santaPosY  -= 50
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                            santaPosY += 50
+                        }
+                    }
+                }
             }
-                playerView()
+            playerView(santaPosY: $santaPosY)
             HStack{
                 Spacer()
                 enemyView()
