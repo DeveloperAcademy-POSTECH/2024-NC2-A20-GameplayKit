@@ -44,6 +44,7 @@
 		299C5A382C21539A00436FE9 /* enemyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 299C5A372C21539A00436FE9 /* enemyView.swift */; };
 		299C5A392C21539A00436FE9 /* enemyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 299C5A372C21539A00436FE9 /* enemyView.swift */; };
 		299C5A3A2C21539A00436FE9 /* enemyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 299C5A372C21539A00436FE9 /* enemyView.swift */; };
+		299C5A402C217B0200436FE9 /* backgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 299C5A3F2C217B0200436FE9 /* backgroundView.swift */; };
 		7DE34B392C21622000004F08 /* SoundManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DE34B382C21622000004F08 /* SoundManager.swift */; };
 /* End PBXBuildFile section */
 
@@ -88,6 +89,7 @@
 		299C5A2C2C213C0C00436FE9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		299C5A332C21535F00436FE9 /* playerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = playerView.swift; sourceTree = "<group>"; };
 		299C5A372C21539A00436FE9 /* enemyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = enemyView.swift; sourceTree = "<group>"; };
+		299C5A3F2C217B0200436FE9 /* backgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = backgroundView.swift; sourceTree = "<group>"; };
 		7DE34B382C21622000004F08 /* SoundManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -145,6 +147,7 @@
 				299C5A332C21535F00436FE9 /* playerView.swift */,
 				299C5A372C21539A00436FE9 /* enemyView.swift */,
 				292428D12C202711008E214F /* gamePlayView.swift */,
+				299C5A3F2C217B0200436FE9 /* backgroundView.swift */,
 				299C5A082C205BB100436FE9 /* snowView.swift */,
 				299C5A252C2136DE00436FE9 /* snowingView.swift */,
 				299C5A272C21377F00436FE9 /* gameScene.swift */,
@@ -356,6 +359,7 @@
 				292428D22C202711008E214F /* gamePlayView.swift in Sources */,
 				299C5A0B2C2075CD00436FE9 /* backgroundSound.swift in Sources */,
 				299C5A342C21535F00436FE9 /* playerView.swift in Sources */,
+				299C5A402C217B0200436FE9 /* backgroundView.swift in Sources */,
 				299C5A282C21377F00436FE9 /* gameScene.swift in Sources */,
 				299C5A092C205BB100436FE9 /* snowView.swift in Sources */,
 				292428A62C202674008E214F /* NC2App.swift in Sources */,

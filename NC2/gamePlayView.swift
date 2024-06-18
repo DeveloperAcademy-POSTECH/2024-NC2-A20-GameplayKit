@@ -2,13 +2,10 @@ import SwiftUI
 import AVFoundation
 
 struct gamePlayView: View {
-    @State private var rotate = 0.0
     @State private var timer: Timer?
     @State private var paused = false
     @State private var mute = false
     @State private var audioPlayer: AVAudioPlayer?
-    
-    //    @Binding var santaPosY : Int
     @State private var santaPosY: CGFloat = 0
     
     var body: some View {
@@ -19,27 +16,13 @@ struct gamePlayView: View {
                 let imageSize = min(width, height)
                 
                 ZStack {
-                    Color(red: 0, green: 0.13, blue: 0.29)
-                    Image("background")
-                        .resizable()
-                        .aspectRatio(contentMode: .fit)
-                        .frame(width: imageSize * 6.5, height: imageSize * 6.5)
-                        .rotationEffect(.degrees(rotate), anchor: .center)
-                        .position(x: width / 2, y: height * 3.1 )
-                    Image("moon")
-                        .offset(x: 335, y: -130)
+                    backgroundView(timer: $timer)
                     snowingView()
                         .opacity(0.8)
                     Image("ground")
                         .resizable()
                         .frame(width: imageSize * 6.5, height: imageSize * 6.5)
                         .position(x: width / 2, y: height * 3.1 )
-                }
-                .onAppear {
-                    startRotation()
-                }
-                .onDisappear {
-                    stopRotation()
                 }
                 .onTapGesture {
                     SoundManager.shared.playSound()
@@ -59,12 +42,10 @@ struct gamePlayView: View {
                 HStack(alignment: .bottom, spacing: 0){
                     playerView(santaPosY: $santaPosY, timer: $timer)
                         .padding(EdgeInsets(top: 0, leading: 60, bottom: 6, trailing: 0))
-                        .background(Color.white)
                     
                     Spacer()
                     enemyView(timer: $timer)
                         .padding(.trailing, 62)
-                        .background(Color.white)
                 }
                 .padding(.bottom, 45)
                 
@@ -171,27 +152,6 @@ struct gamePlayView: View {
         .ignoresSafeArea()
         backgroundSound()
     }
-    
-    
-    
-    
-    private func startRotation() {
-        timer = Timer.scheduledTimer(withTimeInterval: 0.1, repeats: true) { _ in
-            rotate -= 0.5
-        }
-    }
-    
-    private func stopRotation() {
-        timer?.invalidate()
-        timer = nil
-    }
-    
-    
-    
-}
-
-
-
 
 #Preview {
     gamePlayView()
