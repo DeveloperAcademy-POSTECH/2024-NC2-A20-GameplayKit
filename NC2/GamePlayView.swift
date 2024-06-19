@@ -1,12 +1,22 @@
 import SwiftUI
 import AVFoundation
 
-struct gamePlayView: View {
+struct GamePlayView: View {
+    @StateObject private var gameStateManager = GameStateManager()
+    @Environment(GameManager.self) private var gameManager
+    
     @State private var timer: Timer?
-    @State private var paused = false
-    @State private var mute = false
+    @State private var counter = 0
+    
+    @State private var isRunning = false
+    
+    @Binding var isplaying : Bool
+    @Binding var mute : Bool
+    
     @State private var audioPlayer: AVAudioPlayer?
     @State private var santaPosY: CGFloat = 0
+    
+    @State var colliderHit = false
     
     var body: some View {
         ZStack(){
@@ -16,8 +26,8 @@ struct gamePlayView: View {
                 let imageSize = min(width, height)
                 
                 ZStack {
-                    backgroundView(timer: $timer)
-                    snowingView()
+                    BackgroundView(timer: $timer)
+                    SnowingView()
                         .opacity(0.8)
                     Image("ground")
                         .resizable()
@@ -25,7 +35,9 @@ struct gamePlayView: View {
                         .position(x: width / 2, y: height * 3.1 )
                 }
                 .onTapGesture {
-                    SoundManager.shared.playSound()
+                    if !mute {
+                        SoundManager.shared.playSound()
+                    }
                     
                     if santaPosY <= -50 {
                         santaPosY -= 0
@@ -40,16 +52,18 @@ struct gamePlayView: View {
             VStack(spacing: 0) {
                 Spacer()
                 HStack(alignment: .bottom, spacing: 0){
-                    playerView(santaPosY: $santaPosY, timer: $timer)
+                    PlayerView(santaPosY: $santaPosY, timer: $timer)
                         .padding(EdgeInsets(top: 0, leading: 60, bottom: 6, trailing: 0))
                     
                     Spacer()
-                    enemyView(timer: $timer)
+                    EnemyView(timer: $timer)
                         .padding(.trailing, 62)
                 }
                 .padding(.bottom, 45)
                 
             }
+            ObstacleView(timer: $timer, colliderHit: $colliderHit)
+            
             VStack(spacing: 0){
                 HStack(alignment: .top, spacing: 0) {
                     Image("pause")
@@ -65,9 +79,12 @@ struct gamePlayView: View {
                             .foregroundStyle(.white)
                             .font(.custom("UpheavalPro", size: 16))
                             .padding(.bottom, 7)
-                        Text("86")
+                            .foregroundColor(Color(red: 0.85, green: 0.91, blue: 0.94))
+                        //                        Text("\(timer?.timeInterval ?? 0)")
+                        Text("\(gameStateManager.elapsedTime, specifier: "%.f")")
                             .foregroundStyle(.white)
                             .font(.custom("UpheavalPro", size: 42))
+                            .foregroundColor(Color(red: 0.85, green: 0.91, blue: 0.94))
                     }
                     .padding(.leading, 276)
                     .padding(.trailing, 270)
@@ -79,11 +96,11 @@ struct gamePlayView: View {
                 .padding(.top, 25)
                 Spacer()
             }
-            if paused {
+            if gameManager.pause == true {
                 Color(red: 0, green: 0, blue: 0.07).opacity(0.6)
                 VStack(spacing: 30){
                     Button(action: {
-                        
+                        gameManager.pause = false
                     }, label: {
                         ZStack{
                             Rectangle()
@@ -96,7 +113,8 @@ struct gamePlayView: View {
                         }
                     })
                     Button(action: {
-                        
+                        isplaying = false
+                        gameManager.pause = false
                     }, label: {
                         ZStack{
                             Rectangle()
@@ -110,15 +128,19 @@ struct gamePlayView: View {
                     })
                 }
                 .padding(.top, 16)
-                
-                
             }
             VStack(spacing: 0){
                 HStack(spacing: 0){
                     Button(action: {
-                        paused.toggle()
+                        gameManager.pause.toggle()
+                        if gameManager.pause == false {
+                            gameStateManager.play()
+                        } else {
+                            gameStateManager.pause()
+                        }
+                        
                     }, label: {
-                        if !paused {
+                        if gameManager.pause == false {
                             Image("pause")
                                 .padding(.trailing, 13)
                                 .padding(.top, 15)
@@ -131,15 +153,9 @@ struct gamePlayView: View {
                     Button(action: {
                         mute.toggle()
                     }, label: {
-                        if !mute {
-                            Image("on")
-                                .padding(.leading, 14)
-                                .padding(.top, 15)
-                        } else {
-                            Image("off")
-                                .padding(.leading, 14)
-                                .padding(.top, 15)
-                        }
+                        BackgroundSound(mute: $mute)
+                            .padding(.leading, 14)
+                            .padding(.top, 15)
                     })
                     Spacer()
                 }
@@ -150,9 +166,19 @@ struct gamePlayView: View {
             
         }
         .ignoresSafeArea()
-        backgroundSound()
+        .navigationBarBackButtonHidden(true)
+        .onAppear {
+            timer = Timer.scheduledTimer(withTimeInterval: 1.0 / 60.0, repeats: true) { _ in
+                let deltaTime = 1.0 / 60.0
+                gameStateManager.update(deltaTime: deltaTime)
+            }
+        }
+        .onDisappear {
+            timer?.invalidate()
+        }
     }
+}
 
 #Preview {
-    gamePlayView()
+    GamePlayView(isplaying: .constant(false), mute: .constant(false))
 }

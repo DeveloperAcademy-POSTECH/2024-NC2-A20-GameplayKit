@@ -9,9 +9,16 @@ import SwiftUI
 
 @main
 struct NC2App: App {
+    @State var gameManager: GameManager = .init()
     var body: some Scene {
         WindowGroup {
-            gamePlayView()
+            MainView()
+                .environment(gameManager)
         }
     }
+}
+
+@Observable
+class GameManager {
+    var pause: Bool = false
 }

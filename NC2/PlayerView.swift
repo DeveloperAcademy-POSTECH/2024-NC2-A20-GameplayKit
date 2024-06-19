@@ -2,14 +2,14 @@ import SwiftUI
 import GameplayKit
 import AVFoundation
 
-struct playerView: View {
+struct PlayerView: View {
     @State private var playerImage = true
     //    @State private var playerJumpImage = Image("santa_jump")
     @Binding var santaPosY: CGFloat
 //    @State private var audioPlayer: AVAudioPlayer?
     
     @Binding var timer: Timer?
-    
+    @Environment(GameManager.self) private var gameManager
 //    let timer = Timer.publish(every: 0.5, on: .main, in: .common).autoconnect()
     
     var body: some View {
@@ -40,7 +40,9 @@ struct playerView: View {
 //                        playerImage.toggle()
 //                    }
                     .onAppear {
-                        startWork()
+                        if gameManager.pause == false {
+                            startWalk()
+                        }
                     }
                 
             }
@@ -48,9 +50,12 @@ struct playerView: View {
 //        }
         .edgesIgnoringSafeArea(.all)
     }
-    private func startWork() {
+    
+    private func startWalk() {
         timer = Timer.scheduledTimer(withTimeInterval: 0.5, repeats: true) { _ in
-            playerImage.toggle()
+            if !gameManager.pause {
+                playerImage.toggle()
+            }
         }
     }
 }
@@ -59,5 +64,5 @@ struct playerView: View {
 
 
 #Preview {
-    playerView(santaPosY: .constant(0), timer: .constant(nil))
+    PlayerView(santaPosY: .constant(0), timer: .constant(nil))
 }

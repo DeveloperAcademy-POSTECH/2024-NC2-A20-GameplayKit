@@ -8,7 +8,7 @@
 import SwiftUI
 import SpriteKit
 
-struct snowingView: View {
+struct SnowingView: View {
     var body: some View {
         SpriteView(scene: makeGameScene(), options: [.allowsTransparency])
             .ignoresSafeArea()
@@ -24,5 +24,9 @@ struct snowingView: View {
 }
 
 #Preview {
-    snowingView()
+    ZStack{
+        Color.black.ignoresSafeArea()
+        SnowingView()
+    }
+    
 }

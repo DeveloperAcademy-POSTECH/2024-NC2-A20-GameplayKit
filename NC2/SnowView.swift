@@ -1,13 +1,13 @@
 import SwiftUI
 
-public struct snowView: View {
+public struct SnowView: View {
     public var body: some View {
-        particleSnow()
+        ParticleSnow()
             .frame(maxWidth: .infinity, maxHeight: .infinity)
     }
 }
 
-struct particleSnow: View {
+struct ParticleSnow: View {
     @State private var particleItems: [particleItem] = []
     private let numberofparticle = 1
     @State private var timer: Timer?
@@ -100,5 +100,5 @@ fileprivate struct RainAnimation: Animatable, ViewModifier {
 }
 
 #Preview {
-    snowView()
+    SnowView()
 }

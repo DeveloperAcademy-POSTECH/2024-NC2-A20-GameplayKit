@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct backgroundView: View {
+struct BackgroundView: View {
     
     @State private var rotate = 0.0
     @Binding var timer : Timer?
@@ -54,5 +54,5 @@ struct backgroundView: View {
 
 
 #Preview {
-    backgroundView(timer: .constant(nil))
+    BackgroundView(timer: .constant(nil))
 }
