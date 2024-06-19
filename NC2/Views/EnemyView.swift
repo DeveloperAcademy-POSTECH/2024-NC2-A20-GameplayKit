@@ -3,19 +3,20 @@ import SwiftUI
 
 struct EnemyView: View {
     @State private var enemyImage = true
-    @Environment(GameManager.self) private var gameManager
+//    @Environment(GameManager.self) private var gameManager
+    @EnvironmentObject var gameStateManager: GameStateManager
     @Binding var timer: Timer?
     
 //    let timer = Timer.publish(every: 0.5, on: .main, in: .common).autoconnect()
     
     var body: some View {
         VStack {
-            Image(enemyImage ? "rudolph_walk" : "rudolph_run")
+            Image(enemyImage ? "rudolph_idle" : "rudolph_walk")
                 .resizable()
                 .scaledToFit()
                 .frame(width: 70, height: 120)
                 .onAppear{
-                    if gameManager.pause == false {
+                    if gameStateManager.isPaused == false {
                         startWork()
                     }
                 }
@@ -30,7 +31,7 @@ struct EnemyView: View {
     
     private func startWork() {
         timer = Timer.scheduledTimer(withTimeInterval: 0.5, repeats: true) { _ in
-            if !gameManager.pause {
+            if !gameStateManager.isPaused {
                 enemyImage.toggle()
             }
         }

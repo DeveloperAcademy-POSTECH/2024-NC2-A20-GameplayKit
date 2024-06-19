@@ -1,21 +1,12 @@
 import SwiftUI
 
 struct ObstacleView: View {
-    @State private var currentObject: MyObject? // 현재 표시할 객체를 저장하는 상태 변수
-    
     @Binding var timer: Timer?
     
     @State var degreesRotating = 0.0
     
     @Binding var colliderHit: Bool
-    
-//    @State private var objects: [MyObject] = [] // 이미지를 관리하는 배열
-    
-//    struct MyObject: Identifiable {
-//        let id = UUID()
-//        let name: String // 객체의 이름을 저장하는 속성
-//    }
-    
+        
     var body: some View {
         GeometryReader { geometry in
             let width = geometry.size.width
@@ -26,7 +17,7 @@ struct ObstacleView: View {
                     Image("horn1")
                         .resizable()
                         .frame(width: 15, height: 1000)
-                        .background(Color.red)
+                        .background(Color.black)
                         .rotationEffect(.degrees(degreesRotating), anchor: .bottomLeading)
                         .position(x: width / 2, y: height * 1.85)
                         .onAppear {

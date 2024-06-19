@@ -11,6 +11,9 @@ struct StartView: View {
     @Binding var isplaying: Bool
     @Binding var mute : Bool
 
+    @EnvironmentObject var gameStateManager: GameStateManager
+//    @ObservedObject var gameStateManager = GameStateManager()
+
     @State private var isBlinking = false
     
     @State private var timer: Timer?
@@ -36,6 +39,7 @@ struct StartView: View {
                         .padding(.bottom, 7)
                         .foregroundColor(Color(red: 0.85, green: 0.91, blue: 0.94))
                         .padding(.top, 37)
+                    // 최고점수 받아오기
                     Text("86")
                         .foregroundStyle(.white)
                         .font(.custom("UpheavalPro", size: 42))
@@ -58,9 +62,9 @@ struct StartView: View {
             }
             .ignoresSafeArea()
             .onTapGesture {
-                withAnimation {
-                    isplaying.toggle()
-                }
+                gameStateManager.play()
+//                isplaying = false
+//                    isplaying.toggle()
             }
         }
     }

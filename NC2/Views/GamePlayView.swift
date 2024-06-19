@@ -2,12 +2,10 @@ import SwiftUI
 import AVFoundation
 
 struct GamePlayView: View {
-    @StateObject private var gameStateManager = GameStateManager()
-    @Environment(GameManager.self) private var gameManager
+    @EnvironmentObject var gameStateManager: GameStateManager
     
     @State private var timer: Timer?
     @State private var counter = 0
-    
     @State private var isRunning = false
     
     @Binding var isplaying : Bool
@@ -15,7 +13,6 @@ struct GamePlayView: View {
     
     @State private var audioPlayer: AVAudioPlayer?
     @State private var santaPosY: CGFloat = 0
-    
     @State var colliderHit = false
     
     var body: some View {
@@ -96,11 +93,11 @@ struct GamePlayView: View {
                 .padding(.top, 25)
                 Spacer()
             }
-            if gameManager.pause == true {
+            if gameStateManager.isPaused == true {
                 Color(red: 0, green: 0, blue: 0.07).opacity(0.6)
                 VStack(spacing: 30){
                     Button(action: {
-                        gameManager.pause = false
+                        gameStateManager.isPaused = false
                     }, label: {
                         ZStack{
                             Rectangle()
@@ -114,7 +111,7 @@ struct GamePlayView: View {
                     })
                     Button(action: {
                         isplaying = false
-                        gameManager.pause = false
+                        gameStateManager.isPaused = false
                     }, label: {
                         ZStack{
                             Rectangle()
@@ -132,15 +129,16 @@ struct GamePlayView: View {
             VStack(spacing: 0){
                 HStack(spacing: 0){
                     Button(action: {
-                        gameManager.pause.toggle()
-                        if gameManager.pause == false {
+                        gameStateManager.isPaused.toggle()
+                        
+                        if gameStateManager.isPaused == false {
                             gameStateManager.play()
                         } else {
                             gameStateManager.pause()
                         }
                         
                     }, label: {
-                        if gameManager.pause == false {
+                        if gameStateManager.isPaused == false {
                             Image("pause")
                                 .padding(.trailing, 13)
                                 .padding(.top, 15)
