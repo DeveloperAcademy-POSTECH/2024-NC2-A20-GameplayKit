@@ -13,10 +13,12 @@ struct MainView: View {
     
     var body: some View {
         VStack {
-            if gameStateManager.isPaused {
-                StartView(isplaying: $gameStateManager.isPaused, mute: $mute)
+            if gameStateManager.isReady {
+                StartView(mute: $mute)
+            } else if gameStateManager.isEnd{
+                GameEndView()
             } else {
-                GamePlayView(isplaying: $gameStateManager.isPaused, mute: $mute)
+                GamePlayView(mute: $mute)
             }
         }
     }

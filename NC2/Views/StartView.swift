@@ -8,11 +8,10 @@
 import SwiftUI
 
 struct StartView: View {
-    @Binding var isplaying: Bool
+//    @Binding var isplaying: Bool
     @Binding var mute : Bool
 
     @EnvironmentObject var gameStateManager: GameStateManager
-//    @ObservedObject var gameStateManager = GameStateManager()
 
     @State private var isBlinking = false
     
@@ -30,7 +29,7 @@ struct StartView: View {
                 Image("ground")
                     .resizable()
                     .frame(width: imageSize * 6.5, height: imageSize * 6.5)
-                    .position(x: width / 2, y: height * 3.1 )
+                    .position(x: width / 1.73, y: height * 3.14 )
                 
                 VStack(spacing: 0){
                     Text("score")
@@ -58,13 +57,10 @@ struct StartView: View {
                     
                     Spacer()
                 }
-                
             }
             .ignoresSafeArea()
             .onTapGesture {
                 gameStateManager.play()
-//                isplaying = false
-//                    isplaying.toggle()
             }
         }
     }
@@ -84,5 +80,5 @@ struct StartView: View {
 }
 
 #Preview {
-    StartView(isplaying: .constant(false), mute: .constant(false))
+    StartView(mute: .constant(false))
 }

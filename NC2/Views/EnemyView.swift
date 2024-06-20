@@ -3,11 +3,10 @@ import SwiftUI
 
 struct EnemyView: View {
     @State private var enemyImage = true
-//    @Environment(GameManager.self) private var gameManager
+
     @EnvironmentObject var gameStateManager: GameStateManager
     @Binding var timer: Timer?
     
-//    let timer = Timer.publish(every: 0.5, on: .main, in: .common).autoconnect()
     
     var body: some View {
         VStack {
@@ -20,11 +19,7 @@ struct EnemyView: View {
                         startWork()
                     }
                 }
-//                .onAppear(timer){ _ in
-//                    // 수정 필요
-//                    enemyImage.toggle()
-//
-//                }
+
         }
         
     }

@@ -15,6 +15,11 @@ class GameTimeComponent: GKComponent {
     }
 }
 
+// 게임 대기 중일 때의 상태 클래스
+class ReadyState: GKState {
+   
+}
+
 // 게임이 진행 중일 때의 상태 클래스
 class PlayingState: GKState {
     private let gameTimeComponent: GameTimeComponent
@@ -64,6 +69,10 @@ class PausedState: GKState {
     }
 }
 
+// 게임 오버일 때의 상태 클래스
+class EndState: GKState {
+   
+}
 
 // 게임 상태를 관리하는 클래스
 class GameStateManager: ObservableObject {
@@ -73,6 +82,8 @@ class GameStateManager: ObservableObject {
     @Published private(set) var elapsedTime: TimeInterval = 0
 //    @Published private(set) var isPaused: Bool = true
     @Published var isPaused: Bool = true
+    @Published var isReady: Bool = true
+    @Published var isEnd: Bool = true
     
     var currentState: GKState? {
         stateMachine.currentState
@@ -81,7 +92,9 @@ class GameStateManager: ObservableObject {
     init() {
         stateMachine = GKStateMachine(states: [
             PlayingState(gameTimeComponent: gameTimeComponent),
-            PausedState()
+            PausedState(),
+            ReadyState(),
+            EndState()
         ])
         
         stateMachine.enter(PlayingState.self) // 초기 상태를 PlayingState로 설정
@@ -96,6 +109,8 @@ class GameStateManager: ObservableObject {
     func play() {
         stateMachine.enter(PlayingState.self)
         isPaused = false
+        isReady = false
+        isEnd = false
         print("Game started")
     }
     
@@ -103,5 +118,19 @@ class GameStateManager: ObservableObject {
         stateMachine.enter(PausedState.self)
         isPaused = true
         print("Game paused")
+    }
+    //
+    func restart() {
+        stateMachine.enter(ReadyState.self)
+        isPaused = false
+        isReady = true
+        isEnd = true
+        print("Game restart")
+    }
+    
+    func end() {
+        stateMachine.enter(EndState.self)
+        isEnd = true
+        print("Game over")
     }
 }

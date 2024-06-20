@@ -8,7 +8,7 @@ struct GamePlayView: View {
     @State private var counter = 0
     @State private var isRunning = false
     
-    @Binding var isplaying : Bool
+//    @Binding var isplaying : Bool
     @Binding var mute : Bool
     
     @State private var audioPlayer: AVAudioPlayer?
@@ -36,12 +36,12 @@ struct GamePlayView: View {
                         SoundManager.shared.playSound()
                     }
                     
-                    if santaPosY <= -50 {
+                    if santaPosY <= -80 {
                         santaPosY -= 0
                     } else {
-                        santaPosY  -= 50
+                        santaPosY  -= 80
                         DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-                            santaPosY += 50
+                            santaPosY += 80
                         }
                     }
                 }
@@ -77,7 +77,7 @@ struct GamePlayView: View {
                             .font(.custom("UpheavalPro", size: 16))
                             .padding(.bottom, 7)
                             .foregroundColor(Color(red: 0.85, green: 0.91, blue: 0.94))
-                        //                        Text("\(timer?.timeInterval ?? 0)")
+                        // Text("\(timer?.timeInterval ?? 0)")
                         Text("\(gameStateManager.elapsedTime, specifier: "%.f")")
                             .foregroundStyle(.white)
                             .font(.custom("UpheavalPro", size: 42))
@@ -97,7 +97,7 @@ struct GamePlayView: View {
                 Color(red: 0, green: 0, blue: 0.07).opacity(0.6)
                 VStack(spacing: 30){
                     Button(action: {
-                        gameStateManager.isPaused = false
+                        gameStateManager.play()
                     }, label: {
                         ZStack{
                             Rectangle()
@@ -110,8 +110,7 @@ struct GamePlayView: View {
                         }
                     })
                     Button(action: {
-                        isplaying = false
-                        gameStateManager.isPaused = false
+                        gameStateManager.restart()
                     }, label: {
                         ZStack{
                             Rectangle()
@@ -162,9 +161,17 @@ struct GamePlayView: View {
                 Spacer()
             }
             
+            // 게임엔드뷰로 이동
+            Button(action: {
+                gameStateManager.end()
+            }, label: {
+                Circle()
+                    .frame(width: 50,height: 50)
+                    .foregroundColor(.red)
+            })
+            
         }
         .ignoresSafeArea()
-        .navigationBarBackButtonHidden(true)
         .onAppear {
             timer = Timer.scheduledTimer(withTimeInterval: 1.0 / 60.0, repeats: true) { _ in
                 let deltaTime = 1.0 / 60.0
@@ -173,10 +180,12 @@ struct GamePlayView: View {
         }
         .onDisappear {
             timer?.invalidate()
+            timer = nil
+            print("Timer invalidated")
         }
     }
 }
 
 #Preview {
-    GamePlayView(isplaying: .constant(false), mute: .constant(false))
+    GamePlayView(mute: .constant(false))
 }

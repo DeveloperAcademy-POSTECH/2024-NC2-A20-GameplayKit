@@ -6,12 +6,10 @@ struct PlayerView: View {
     @State private var playerImage = true
     //    @State private var playerJumpImage = Image("santa_jump")
     @Binding var santaPosY: CGFloat
-//    @State private var audioPlayer: AVAudioPlayer?
     
     @Binding var timer: Timer?
     @EnvironmentObject var gameStateManager: GameStateManager
-//    @Environment(GameManager.self) private var gameManager
-//    let timer = Timer.publish(every: 0.5, on: .main, in: .common).autoconnect()
+
     
     var body: some View {
             ZStack {
