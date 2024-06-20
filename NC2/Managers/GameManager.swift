@@ -29,8 +29,25 @@ class PlayingState: GKState {
         super.init()
     }
     
-    override func update(deltaTime seconds: TimeInterval) {
+    override func didEnter(from previousState: GKState?) {  // 새로운 상태에 진입할 때 호출 + 초기화 작업을 추가할 수 있음
+    startPlaying()
+    }
+    override func update(deltaTime seconds: TimeInterval) {  // 매 프레임마다 행동을 호출
         gameTimeComponent.update(deltaTime: seconds)
+    }
+    override func willExit(to nextState: GKState) {  // 다른 상태로 전환될 때 호출
+    stopPlaying()
+    }
+    
+    private func startPlaying() {
+    // 게임 플레이 초기화 코드
+        gameTimeComponent.reset()
+    }
+    private func updateGameLogic(deltaTime: TimeInterval) {
+    // 게임 로직 업데이트 코드
+    }
+    private func stopPlaying() {
+    // 게임 플레이 정리 코드
     }
 }
 
@@ -42,31 +59,25 @@ class PausedState: GKState {
            self.gameStateManager = gameStateManager
            super.init()
        }
-    
-    // 상태에 진입할 때 호출되는 메서드
+
     override func didEnter(from previousState: GKState?) {
         super.didEnter(from: previousState)
         // 게임을 일시중지할 때 필요한 작업을 수행
         print("Game is now paused.")
     }
-    
-    // 상태에서 나올 때 호출되는 메서드
+    override func update(deltaTime seconds: TimeInterval) {   // 일시중지 상태에서는 업데이트 로직을 수행하지 않음
+        // 게임이 일시중지된 상태에서는 아무런 업데이트도 하지 않음
+    }
     override func willExit(to nextState: GKState) {
         super.willExit(to: nextState)
         // 게임이 다시 진행될 때 필요한 작업을 수행
         print("Game is resuming from pause.")
     }
-    
-    // 일시중지 상태에서는 업데이트 로직을 수행하지 않음
-    override func update(deltaTime seconds: TimeInterval) {
-        // 게임이 일시중지된 상태에서는 아무런 업데이트도 하지 않음
-    }
-    
-    // 필요에 따라 상태 전환을 허용하는지 여부를 결정하는 메서드
-    override func isValidNextState(_ stateClass: AnyClass) -> Bool {
-        // PlayingState로만 전환을 허용
-        return stateClass is PlayingState.Type
-    }
+//    // 필요에 따라 상태 전환을 허용하는지 여부를 결정하는 메서드
+//    override func isValidNextState(_ stateClass: AnyClass) -> Bool {
+//        // PlayingState로만 전환을 허용
+//        return stateClass is PlayingState.Type
+//    }
 }
 
 // 게임 오버일 때의 상태 클래스
@@ -100,6 +111,7 @@ class GameStateManager: ObservableObject {
         stateMachine.enter(PlayingState.self) // 초기 상태를 PlayingState로 설정
     }
     
+    // pause 상태 확인 메서드
     func update(deltaTime seconds: TimeInterval) {
         stateMachine.update(deltaTime: seconds)
         elapsedTime = gameTimeComponent.elapsedTime
