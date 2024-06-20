@@ -18,7 +18,7 @@ struct GameEndView: View {
             ZStack {
                 Image("Gameover&Score View")
                     .resizable()
-                    .frame(width: 890,height: 437)
+                    .frame(width: 852, height: 414)
                     .position(x: width / 2, y: height * 0.5 )
             }
             .onTapGesture {

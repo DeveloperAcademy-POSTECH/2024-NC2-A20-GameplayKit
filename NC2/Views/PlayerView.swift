@@ -19,7 +19,7 @@ struct PlayerView: View {
                     .frame(width: 85, height: 95)
                     .offset(y: santaPosY)
                     .onAppear {
-                        if gameStateManager.isPaused == false {
+                        if !gameStateManager.isPaused {
                             startWalk()
                         }
                     }

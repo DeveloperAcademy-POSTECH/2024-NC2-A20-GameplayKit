@@ -8,7 +8,7 @@ struct GamePlayView: View {
     @State private var counter = 0
     @State private var isRunning = false
     
-//    @Binding var isplaying : Bool
+    //    @Binding var isplaying : Bool
     @Binding var mute : Bool
     
     @State private var audioPlayer: AVAudioPlayer?
@@ -59,7 +59,7 @@ struct GamePlayView: View {
                 .padding(.bottom, 45)
                 
             }
-            ObstacleView(timer: $timer, colliderHit: $colliderHit)
+            ObstacleView(colliderHit: $colliderHit)
             
             VStack(spacing: 0){
                 HStack(alignment: .top, spacing: 0) {
@@ -82,6 +82,11 @@ struct GamePlayView: View {
                             .foregroundStyle(.white)
                             .font(.custom("UpheavalPro", size: 42))
                             .foregroundColor(Color(red: 0.85, green: 0.91, blue: 0.94))
+                            .onTapGesture {
+                                // 게임엔드뷰로 이동
+                                gameStateManager.end()
+                                
+                            }
                     }
                     .padding(.leading, 276)
                     .padding(.trailing, 270)
@@ -93,7 +98,7 @@ struct GamePlayView: View {
                 .padding(.top, 25)
                 Spacer()
             }
-            if gameStateManager.isPaused == true {
+            if gameStateManager.isPaused {
                 Color(red: 0, green: 0, blue: 0.07).opacity(0.6)
                 VStack(spacing: 30){
                     Button(action: {
@@ -130,14 +135,14 @@ struct GamePlayView: View {
                     Button(action: {
                         gameStateManager.isPaused.toggle()
                         
-                        if gameStateManager.isPaused == false {
+                        if !gameStateManager.isPaused {
                             gameStateManager.play()
                         } else {
                             gameStateManager.pause()
                         }
                         
                     }, label: {
-                        if gameStateManager.isPaused == false {
+                        if !gameStateManager.isPaused {
                             Image("pause")
                                 .padding(.trailing, 13)
                                 .padding(.top, 15)
@@ -155,21 +160,12 @@ struct GamePlayView: View {
                             .padding(.top, 15)
                     })
                     Spacer()
+                    
                 }
                 .padding(.leading, 51)
                 .padding(.top, 25)
                 Spacer()
             }
-            
-            // 게임엔드뷰로 이동
-            Button(action: {
-                gameStateManager.end()
-            }, label: {
-                Circle()
-                    .frame(width: 50,height: 50)
-                    .foregroundColor(.red)
-            })
-            
         }
         .ignoresSafeArea()
         .onAppear {

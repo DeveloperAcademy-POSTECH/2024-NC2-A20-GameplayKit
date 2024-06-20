@@ -15,7 +15,7 @@ struct EnemyView: View {
                 .scaledToFit()
                 .frame(width: 70, height: 120)
                 .onAppear{
-                    if gameStateManager.isPaused == false {
+                    if !gameStateManager.isPaused {
                         startWork()
                     }
                 }

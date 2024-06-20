@@ -81,7 +81,7 @@ class GameStateManager: ObservableObject {
     
     @Published private(set) var elapsedTime: TimeInterval = 0
 //    @Published private(set) var isPaused: Bool = true
-    @Published var isPaused: Bool = true
+    @Published var isPaused: Bool = false
     @Published var isReady: Bool = true
     @Published var isEnd: Bool = true
     
@@ -119,7 +119,7 @@ class GameStateManager: ObservableObject {
         isPaused = true
         print("Game paused")
     }
-    //
+
     func restart() {
         stateMachine.enter(ReadyState.self)
         isPaused = false
