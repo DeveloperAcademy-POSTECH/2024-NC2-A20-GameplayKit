@@ -13,15 +13,15 @@
 > 짧은 시간동안 가볍고 쉽게 즐길 수 있는 1인용 장애물 피하기 게임을 만들자!
 
 ## 🖼️ Prototype
-+ ### 게임시작: 화면을 탭해 게임을 시작
++ ### StartView : 화면을 탭해 게임을 시작
     ![Group 14](https://github.com/DeveloperAcademy-POSTECH/2024-NC2-A20-GameplayKit/assets/138895117/978b6f18-6bb8-4263-96e7-ae2ff06c6b18)
-+ ### 플레이 화면: 산타가 점프해(탭 제스쳐) 장애물을 피하는 게임
++ ### GamePlayView : 산타가 점프해(탭 제스쳐) 장애물을 피하는 게임
     ![Group 17](https://github.com/DeveloperAcademy-POSTECH/2024-NC2-A20-GameplayKit/assets/138895117/8ee34f29-a192-422e-b4cd-04727805c51e)
-+ ### 일시정지 버튼: 게임 속 애니메이션 중지
-    + #### Continue: 게임 화면으로 돌아감
-    + #### Quit Game: 초기화면으로 돌아감
++ ### pause & play Button : 게임 속 애니메이션 중지
+    + #### Continue : 게임 화면으로 돌아감
+    + #### Quit Game : 초기화면으로 돌아감
     ![Group 19](https://github.com/DeveloperAcademy-POSTECH/2024-NC2-A20-GameplayKit/assets/138895117/78d656e5-2b06-41e2-b574-45f02aa089d0)
-+ ### 게임 종료: 장애물에 부딪혔을 경우 게임이 종료되고, 현재 및 최고 스코어를 확인
++ ### GameEndView : 장애물에 부딪혔을 경우 게임이 종료되고, 현재 및 최고 스코어를 확인
     ![Group 16](https://github.com/DeveloperAcademy-POSTECH/2024-NC2-A20-GameplayKit/assets/138895117/2e977c94-1e6e-403a-8e5b-10848741197d)
 
 
