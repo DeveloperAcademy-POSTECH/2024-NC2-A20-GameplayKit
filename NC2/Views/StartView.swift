@@ -32,14 +32,14 @@ struct StartView: View {
                     .position(x: width / 1.73, y: height * 3.14 )
                 
                 VStack(spacing: 0){
-                    Text("score")
+                    Text("best")
                         .foregroundStyle(.white)
                         .font(.custom("UpheavalPro", size: 16))
                         .padding(.bottom, 7)
                         .foregroundColor(Color(red: 0.85, green: 0.91, blue: 0.94))
                         .padding(.top, 37)
                     // 최고점수 받아오기
-                    Text("86")
+                    Text("127")
                         .foregroundStyle(.white)
                         .font(.custom("UpheavalPro", size: 42))
                         .foregroundColor(Color(red: 0.85, green: 0.91, blue: 0.94))
