@@ -17,7 +17,20 @@ class GameTimeComponent: GKComponent {
 
 // 게임 대기 중일 때의 상태 클래스
 class ReadyState: GKState {
-   
+    private let gameTimeComponent: GameTimeComponent
+    
+    init(gameTimeComponent: GameTimeComponent) {
+        self.gameTimeComponent = gameTimeComponent
+        super.init()
+    }
+    
+    override func didEnter(from previousState: GKState?) {  // 새로운 상태에 진입할 때 호출 + 초기화 작업을 추가할 수 있음
+        ready()
+    }
+    private func ready() {
+    // 게임 플레이 초기화 코드
+        gameTimeComponent.reset()
+    }
 }
 
 // 게임이 진행 중일 때의 상태 클래스
@@ -34,6 +47,7 @@ class PlayingState: GKState {
     }
     override func update(deltaTime seconds: TimeInterval) {  // 매 프레임마다 행동을 호출
         gameTimeComponent.update(deltaTime: seconds)
+        
     }
     override func willExit(to nextState: GKState) {  // 다른 상태로 전환될 때 호출
     stopPlaying()
@@ -41,7 +55,7 @@ class PlayingState: GKState {
     
     private func startPlaying() {
     // 게임 플레이 초기화 코드
-        gameTimeComponent.reset()
+//        gameTimeComponent.reset()
     }
     private func updateGameLogic(deltaTime: TimeInterval) {
     // 게임 로직 업데이트 코드
@@ -104,7 +118,7 @@ class GameStateManager: ObservableObject {
         stateMachine = GKStateMachine(states: [
             PlayingState(gameTimeComponent: gameTimeComponent),
             PausedState(),
-            ReadyState(),
+            ReadyState(gameTimeComponent: gameTimeComponent),
             EndState()
         ])
         
