@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct BackgroundView: View {
+    @EnvironmentObject var gameStateManager: GameStateManager
     
     @State private var rotate = 0.0
     @Binding var timer : Timer?
@@ -39,7 +40,9 @@ struct BackgroundView: View {
     
     private func startRotation() {
         timer = Timer.scheduledTimer(withTimeInterval: 0.1, repeats: true) { _ in
-            rotate -= 0.5
+            if !gameStateManager.isPaused {
+                rotate -= 0.5
+            }
         }
     }
     

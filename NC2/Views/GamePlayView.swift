@@ -77,6 +77,7 @@ struct GamePlayView: View {
                             .font(.custom("UpheavalPro", size: 16))
                             .padding(.bottom, 7)
                             .foregroundColor(Color(red: 0.85, green: 0.91, blue: 0.94))
+                        // 실시간 점수
                         // Text("\(timer?.timeInterval ?? 0)")
                         Text("\(gameStateManager.elapsedTime, specifier: "%.f")")
                             .foregroundStyle(.white)
