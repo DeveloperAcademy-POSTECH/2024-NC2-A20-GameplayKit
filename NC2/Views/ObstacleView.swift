@@ -5,7 +5,7 @@ struct ObstacleView: View {
     @State private var timer: Timer?
     
     @State private var degreesRotating: [Double] = (0..<15).map { _ in Double.random(in: 0...360) }
-    
+    @State private var rotate = 0.0
     @Binding var colliderHit: Bool
     
     var body: some View {
@@ -23,18 +23,16 @@ struct ObstacleView: View {
                 }
             }
             .onAppear {
-                if !gameStateManager.isPaused {
                     startMove()
-                }
             }
         }
     }
     
     private func startMove() {
-        if !gameStateManager.isPaused {
-            for index in degreesRotating.indices {
-                withAnimation(Animation.linear(duration: 30).repeatForever(autoreverses: false)) {
-                    degreesRotating[index] = -360.0
+        timer = Timer.scheduledTimer(withTimeInterval: 0.1, repeats: true) { _ in
+            if !gameStateManager.isPaused {
+                for i in 0..<degreesRotating.count {
+                    degreesRotating[i] -= 1.0
                 }
             }
         }
